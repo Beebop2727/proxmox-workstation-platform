@@ -15,6 +15,7 @@ The system currently centres on:
 
 - An Ubuntu workstation VM with AMD GPU passthrough
 - A Windows 11 gaming VM with NVIDIA GPU passthrough
+- A Parrot OS security environment with a reusable base VM and disposable clone
 - Looking Glass for low-latency Windows display inside Ubuntu
 - Routed virtual networking over a Wi-Fi-constrained uplink
 - WireGuard and Synergy for administration and input sharing
@@ -31,6 +32,7 @@ The project is inspired by workload separation, virtualization, and infrastructu
 | 4 TB NVMe VM storage | Operational |
 | Ubuntu workstation VM | Operational |
 | Windows 11 gaming VM | Operational |
+| Parrot OS security environment | Operational |
 | AMD Radeon Pro WX 3100 passthrough | Operational |
 | NVIDIA GeForce RTX 4070 passthrough | Operational |
 | Looking Glass B7 | Operational |
@@ -57,12 +59,12 @@ The platform uses Proxmox VE as a minimal bare-metal hypervisor.
                          Proxmox VE host
                                 |
              +------------------+------------------+
-             |                                     |
-      Ubuntu Workstation VM                 Windows 11 Gaming VM
-      AMD WX 3100 passthrough                RTX 4070 passthrough
-      Primary desktop                        On-demand gaming
-             |                                     |
-             +---------- Looking Glass ------------+
+             |                  |                  |
+      Ubuntu Workstation     Windows 11          Parrot OS
+      AMD WX 3100            RTX 4070            Security VMs
+      Primary desktop        On-demand gaming    Base + disposable
+             |                  |
+             +--- Looking Glass-+
              |
        WireGuard / Synergy
              |
@@ -78,6 +80,7 @@ The VM network is routed and NATed through the host because a normal Wi-Fi clien
 - Deploy Proxmox VE as the host operating system
 - Create a dedicated Ubuntu workstation VM
 - Create a dedicated Windows gaming VM
+- Create a reusable Parrot OS security VM and disposable testing environment
 - Implement dedicated GPU passthrough for both desktop VMs
 - Provide a practical workflow for moving between Linux and Windows
 - Document the architecture, implementation, failures, and lessons learned
@@ -152,6 +155,24 @@ Current headline configuration:
 
 A separate bare-metal Windows installation is being planned for anti-cheat-sensitive or virtualization-incompatible games. The VM remains useful for normal Windows workloads and maintenance tasks.
 
+
+### Parrot OS Security Environment
+
+Parrot OS provides a separated environment for cybersecurity tooling, practical labs, controlled testing, and disposable exercises without placing those tools in the primary Ubuntu workstation.
+
+Current headline configuration:
+
+- VM ID 102 — `parrot-security-base`
+- 4 virtual CPU cores
+- 8 GB RAM
+- 80 GB system disk
+- Reusable base image for security tooling and configuration
+- VM ID 103 — `parrot-disposable-01`
+- Disposable working clone for temporary exercises and testing
+- No dedicated GPU passthrough required
+
+The base VM is kept in a clean, reusable state. Disposable clones can be created for individual exercises and removed or reverted afterwards, reducing configuration drift and keeping the main workstation environment separate.
+
 ## Repository structure
 
 ```text
@@ -181,6 +202,7 @@ This project demonstrates practical experience with:
 - PCIe and GPU passthrough
 - IOMMU and UEFI configuration
 - Virtual storage management
+- VM templates, cloning, and disposable environments
 - Routed and NAT-based VM networking
 - Wi-Fi-constrained infrastructure design
 - WireGuard
