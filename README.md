@@ -3,7 +3,7 @@
 > A Proxmox-based workstation platform that separates Linux productivity, Windows gaming, and supporting virtual workloads on one physical desktop.
 
 **Current phase:** V1 operational, V1.5 integration and refinement  
-**Last updated:** 3 August 2026
+**Last updated:** 4 August 2026
 
 ## Overview
 
@@ -20,7 +20,7 @@ The system currently centres on:
 - Routed virtual networking over a Wi-Fi-constrained uplink
 - WireGuard and Synergy for administration and input sharing
 - Tested VM backup and restoration workflows
-- A planned bare-metal Windows option for games that are unsuitable for virtualization
+- A bare-metal Windows 11 installation for anti-cheat-sensitive or virtualization-incompatible games
 
 The project is inspired by workload separation, virtualization, and infrastructure-as-code principles while remaining practical for everyday use.
 
@@ -31,7 +31,7 @@ The project is inspired by workload separation, virtualization, and infrastructu
 | Proxmox VE host | Operational |
 | 4 TB NVMe VM storage | Operational |
 | Ubuntu workstation VM | Operational |
-| Windows 11 gaming VM | Operational |
+| Windows 11 gaming VM | Operational and play-tested |
 | Parrot OS security environment | Operational |
 | AMD Radeon Pro WX 3100 passthrough | Operational |
 | NVIDIA GeForce RTX 4070 passthrough | Operational |
@@ -40,7 +40,7 @@ The project is inspired by workload separation, virtualization, and infrastructu
 | WireGuard host management | Operational |
 | Synergy keyboard and mouse sharing | Operational |
 | VM backup and restore validation | Complete |
-| Bare-metal Windows integration | Planned / in progress |
+| Bare-metal Windows integration | Operational |
 | Public documentation cleanup | In progress |
 
 For the detailed dated build record, see:
@@ -153,8 +153,7 @@ Current headline configuration:
 - Looking Glass B7 host
 - IVSHMEM / KVMFR shared memory
 
-A separate bare-metal Windows installation is being planned for anti-cheat-sensitive or virtualization-incompatible games. The VM remains useful for normal Windows workloads and maintenance tasks.
-
+The gaming VM has been successfully play-tested with War Thunder, confirming functional RTX 4070 passthrough, hardware-accelerated rendering, and stable gameplay under virtualization. A separate bare-metal Windows 11 installation is now operational for anti-cheat-sensitive or virtualization-incompatible games. The virtual machine remains available for compatible games, normal Windows workloads, testing, and maintenance tasks.
 
 ### Parrot OS Security Environment
 
