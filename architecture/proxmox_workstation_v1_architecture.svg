@@ -51,13 +51,13 @@
   <g class="c-gray">
     <rect x="120" y="48" width="140" height="44" rx="8" stroke-width="0.5"/>
     <text class="t-title" x="190" y="66" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500">ThinkPad</text>
-    <text class="t-sub"   x="190" y="82" text-anchor="middle" dominant-baseline="central" font-size="12">SSH / Proxmox web UI</text>
+    <text class="t-sub" x="190" y="82" text-anchor="middle" dominant-baseline="central" font-size="12">SSH / Proxmox web UI</text>
   </g>
 
   <g class="c-gray">
     <rect x="420" y="48" width="140" height="44" rx="8" stroke-width="0.5"/>
     <text class="t-title" x="490" y="66" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500">MatePad Pro</text>
-    <text class="t-sub"   x="490" y="82" text-anchor="middle" dominant-baseline="central" font-size="12">Proxmox web UI</text>
+    <text class="t-sub" x="490" y="82" text-anchor="middle" dominant-baseline="central" font-size="12">Proxmox web UI</text>
   </g>
 
   <line x1="190" y1="92" x2="280" y2="142" class="arr" marker-end="url(#arrow)"/>
@@ -66,13 +66,13 @@
   <g class="c-purple">
     <rect x="80" y="148" width="520" height="340" rx="16" stroke-width="0.5"/>
     <text class="t-title" x="340" y="174" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500">Proxmox VE host</text>
-    <text class="t-sub"   x="340" y="192" text-anchor="middle" dominant-baseline="central" font-size="12">Ryzen 9 3900X · 32 GB RAM · 500 GB NVMe (OS) · 4 TB NVMe (VMs)</text>
+    <text class="t-sub" x="340" y="192" text-anchor="middle" dominant-baseline="central" font-size="12">Ryzen 9 3900X · 32 GB RAM · 500 GB NVMe (OS) · 4 TB NVMe (VMs)</text>
   </g>
 
   <g class="c-teal">
     <rect x="108" y="210" width="220" height="254" rx="12" stroke-width="0.5"/>
     <text class="t-title" x="218" y="236" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500">Ubuntu workstation VM</text>
-    <text class="t-sub"   x="218" y="256" text-anchor="middle" dominant-baseline="central" font-size="12">Daily driver</text>
+    <text class="t-sub" x="218" y="256" text-anchor="middle" dominant-baseline="central" font-size="12">Daily driver</text>
   </g>
   <g class="c-teal">
     <rect x="124" y="272" width="188" height="30" rx="6" stroke-width="0.5"/>
@@ -89,13 +89,13 @@
   <g class="c-amber">
     <rect x="124" y="396" width="188" height="44" rx="8" stroke-width="0.5"/>
     <text class="t-title" x="218" y="414" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500">AMD Radeon Pro WX 3100</text>
-    <text class="t-sub"   x="218" y="430" text-anchor="middle" dominant-baseline="central" font-size="12">PCIe passthrough</text>
+    <text class="t-sub" x="218" y="430" text-anchor="middle" dominant-baseline="central" font-size="12">PCIe passthrough</text>
   </g>
 
   <g class="c-blue">
     <rect x="352" y="210" width="220" height="254" rx="12" stroke-width="0.5"/>
     <text class="t-title" x="462" y="236" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500">Windows gaming VM</text>
-    <text class="t-sub"   x="462" y="256" text-anchor="middle" dominant-baseline="central" font-size="12">On-demand gaming</text>
+    <text class="t-sub" x="462" y="256" text-anchor="middle" dominant-baseline="central" font-size="12">On-demand gaming</text>
   </g>
   <g class="c-blue">
     <rect x="368" y="272" width="188" height="30" rx="6" stroke-width="0.5"/>
@@ -112,7 +112,7 @@
   <g class="c-amber">
     <rect x="368" y="396" width="188" height="44" rx="8" stroke-width="0.5"/>
     <text class="t-title" x="462" y="414" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500">NVIDIA RTX 4070</text>
-    <text class="t-sub"   x="462" y="430" text-anchor="middle" dominant-baseline="central" font-size="12">PCIe passthrough</text>
+    <text class="t-sub" x="462" y="430" text-anchor="middle" dominant-baseline="central" font-size="12">PCIe passthrough</text>
   </g>
 
   <text class="label-muted" x="340" y="500" text-anchor="middle" font-size="12">2 × 2 TB HDD — backups · media · ISOs</text>

@@ -1,35 +1,72 @@
-# MacBook Pro 15,1 — Ubuntu Server Installation
+# MacBook Pro 15,1 — Ubuntu Server Infrastructure Update
 
-## 2026-08-13 Progress
+**Date:** 13 August 2026  
+**Status:** Operational
 
-### Migration from macOS
+## Migration from macOS
 
-- Decided to move away from macOS after persistent networking/firewall issues affecting the AdGuard Home deployment.
-- Abandoned the Proxmox approach and instead selected **Ubuntu Server** as the operating system.
-- The MacBook is being repurposed as a **server node**, with the option to run additional services and VMs in the future.
-- macOS was removed from the internal drive as part of the migration.
+The MacBook was moved away from macOS after persistent host firewall/content-filter behaviour complicated self-hosted infrastructure services.
 
-### MacBook Hardware
+Ubuntu Server is now the primary operating system and the machine is treated as an independent infrastructure/support node rather than a Proxmox cluster member.
 
-- **Model:** MacBook Pro 15,1
-- **CPU:** 8-Core Intel Core i9 @ 2.3 GHz
-- **RAM:** 16 GB
-- **Storage:** 500 GB internal SSD
-- **Wi-Fi:** Broadcom BCM4364
+## Wi-Fi Recovery
 
-### Ubuntu Server
+The Broadcom BCM4364 Wi-Fi problem carried over from the previous entry was resolved using offline packages prepared on another Linux machine and transferred over USB.
 
-- Ubuntu Server was successfully installed onto the MacBook.
-- A GUI was added to the Server installation for easier administration.
-- Terminal/console text size was adjusted using the Ubuntu Server console configuration.
+Confirmed outcomes:
 
-### Offline Wi-Fi Driver Preparation
+- Required firmware/packages installed
+- NetworkManager available
+- `wpa_supplicant` available
+- Wireless interface detected and operational
+- Normal local-network latency restored after initial troubleshooting
 
-The MacBook initially required offline Wi-Fi firmware, so a separate USB was prepared.
+This closes the Wi-Fi loop left open on 12 August.
 
-USB was reformatted to **ext4** and currently contains:
+## SSH
+
+SSH administration to the server was confirmed working.
+
+This replaced the earlier macOS-specific SSH/firewall troubleshooting with a simpler Linux administration path.
+
+## WireGuard
+
+The infrastructure server was added as a peer to the existing Proxmox management WireGuard network.
+
+The obsolete earlier MacBook peer/configuration was removed and the new Linux WireGuard configuration was enabled at boot.
+
+## DNS
+
+Unbound was installed for lab-oriented DNS service.
+
+Initial SERVFAIL behaviour was corrected and successful recursive/forwarded resolution was confirmed.
+
+The design intention is:
+
+- Lab/security environments can use the infrastructure server for DNS where useful.
+- Other devices use secure upstream DNS directly.
+- The DNS design should remain compatible with future VLAN segmentation.
+
+## Secure Upstream DNS
+
+Quad9 was selected as the secure upstream DNS provider for non-lab traffic.
+
+This configuration was applied to the infrastructure server and also adopted elsewhere in the platform where appropriate.
+
+## Current State
 
 ```text
-apple-bcm-firmware-14.0-1-any.pkg.tar.zst
-zstd_1.5.7+dfsg-3_amd64.deb
-install-bcm4364.sh
+MacBook role:       Ubuntu Server infrastructure node
+Wi-Fi:              Working
+SSH:                Working
+WireGuard:          Working
+Unbound:            Working
+Secure upstream:    Configured
+```
+
+## Next Actions
+
+- Add monitoring when useful.
+- Keep DNS compatible with future VLANs.
+- Evaluate Wake-on-LAN / local power-control workflows.
+- Add other infrastructure services only when they have a clear purpose.

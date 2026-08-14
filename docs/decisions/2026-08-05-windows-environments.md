@@ -1,42 +1,36 @@
 # Windows Environment Architecture Decision
 
-> **Date:** 5 August 2026
-> **Status:** Under evaluation
+> **Date:** 5 August 2026  
+> **Status:** Implemented; long-term roles still under evaluation
 
 ## Context
 
-The platform originally uses a **Windows 11 gaming VM** with:
+The platform uses a Windows 11 VM with RTX 4070 passthrough and Looking Glass.
 
-* NVIDIA RTX 4070 passthrough
-* Looking Glass
-* OVMF / UEFI
-* TPM 2.0
-
-Minecraft has been successfully play-tested, confirming functional GPU acceleration and stable gameplay.
-
-A separate **bare-metal Windows 11 installation** has been added for native performance and improved compatibility with anti-cheat-protected or virtualization-sensitive games.
+A separate bare-metal Windows 11 installation was added for native performance and improved compatibility with anti-cheat-protected or virtualization-sensitive games.
 
 ## Present Configuration
 
-Both Windows environments will be retained for now.
+Both environments are retained.
 
 ### Bare-metal Windows
 
-* Native gaming performance
-* Better anti-cheat compatibility
-* Direct hardware access
+- Native gaming performance
+- Better anti-cheat compatibility
+- Direct hardware access
+- Operational alongside Proxmox through the existing boot arrangement
 
-### Windows Gaming VM
+### Windows VM
 
-* Compatible games and Windows applications
-* GPU passthrough and Looking Glass testing
-* Snapshot-based software and driver testing
-* Windows tasks without rebooting the workstation
+- Compatible games and Windows applications
+- GPU passthrough / Looking Glass testing
+- Snapshot-based driver and software testing
+- Windows tasks without rebooting the host into bare-metal Windows
 
-## Future Plans
+## Implementation update — 14 August 2026
 
-The long-term role of each environment may change as the project develops.
+The earlier open loop around whether bare-metal Windows would actually be installed has been closed: the native Windows environment is operational.
 
-The gaming VM could eventually become a dedicated **Windows testing and compatibility environment**. Bare-metal Windows could also be replaced by a Linux gaming distribution such as **Bazzite** or **CachyOS**.
+The remaining decision is narrower: determine the long-term role of VM 100 as Linux gaming support improves and workload requirements change.
 
-> No permanent decision has been made yet for the viability of the gaming VM or bare-metal solution for gaming.
+No requirement currently exists to remove either environment.
