@@ -2,29 +2,39 @@
 
 This directory contains dated snapshots of the Proxmox Workstation Platform.
 
-The root `README.md` describes the current project at a high level. These entries preserve build history, including completed work, design changes, faults, recoveries, and next actions.
+The root [`README.md`](../../README.md) describes the current project at a high level. These entries preserve build history, including completed work, design changes, faults, recoveries, and next actions.
 
 ## Entries
 
 | Date | Phase | Summary |
 |---|---|---|
-| [2026-08-03](2026-08-03/README.md) | V1 / V1.5 | Host rebuild, network bootstrap, restored VMs, dual-GPU workstation, Looking Glass, routed Wi-Fi networking, and initial bare-metal Windows planning |
-| [2026-08-10](2026-08-10/README.md) | V1.5 / V2 direction | Wi-Fi-based Proxmox management, expanded WireGuard management, and separate infrastructure-host direction |
-| [2026-08-11](2026-08-11/2026-08-11.md) | Infrastructure | macOS infrastructure-service testing and CFIL troubleshooting |
+| [2026-08-03](2026-08-03/2026-08-03-document-proxmox-progress-1.md) | V1 / V1.5 | Host rebuild, network bootstrap, restored VMs, dual-GPU workstation, Looking Glass, routed Wi-Fi networking, and initial bare-metal Windows planning |
+| [2026-08-10](2026-08-10/2026-08-10-proxmox-continuation.md) | V1.5 / V2 direction | Wi-Fi-based Proxmox management, expanded WireGuard management, and separate infrastructure-host direction |
+| [2026-08-11](2026-08-11/2026-08-11-macbook-infrastructure.md) | Infrastructure | macOS infrastructure-service testing and CFIL troubleshooting |
 | [2026-08-12](2026-08-12/2026-08-12-macbook-server.md) | Infrastructure | MacBook migration from macOS to Ubuntu Server and offline Wi-Fi recovery work |
 | [2026-08-13 — MacBook](2026-08-13/2026-08-13-macbook-update.md) | Infrastructure | Ubuntu Server Wi-Fi, SSH, WireGuard, Unbound, and secure DNS brought operational |
 | [2026-08-13 — OPNsense](2026-08-13/2026-08-13-Opnsense-firewall.md) | Networking / firewall | OPNsense VM deployment, WAN/LAN configuration, DHCP, GUI access, and WireGuard foundation |
-| [2026-08-14](2026-08-14/README.md) | Networking / firewall | Completed OPNsense WireGuard management, persistent DNAT, reboot conntrack recovery, and closure of earlier loose ends |
+| [2026-08-14](2026-08-14/2026-08-14-OPNsense-firewall-cleanup.md) | Networking / firewall | Completed OPNsense WireGuard management, persistent DNAT, reboot conntrack recovery, and closure of earlier loose ends |
+
+## Related documentation
+
+- [Root project README](../../README.md)
+- [Roadmap](../../ROADMAP.md)
+- [Proxmox setup notes](../proxmox-setup.md)
+- [GPU passthrough notes](../gpu-passthrough-notes.md)
+- [Lessons learned](../lessons-learned.md)
+- [Windows environment decision](../decisions/2026-08-05-windows-environments.md)
+- [Distributed infrastructure decision](../decisions/2026-08-10-distributed-infrastructure.md)
 
 ## Naming convention
 
-New entries should normally use:
+Progress entries now use descriptive filenames inside a dated directory:
 
 ```text
-docs/progress/YYYY-MM-DD/README.md
+docs/progress/YYYY-MM-DD/YYYY-MM-DD-short-description.md
 ```
 
-Some earlier entries use descriptive filenames inside the dated directory. They are retained to avoid rewriting historical paths.
+This keeps the date visible in both the directory and filename while allowing multiple progress entries on the same day.
 
 Each entry should record:
 

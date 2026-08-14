@@ -2,7 +2,7 @@
 
 > A Proxmox-based workstation and homelab platform separating Linux productivity, Windows gaming, security testing, firewalling, and supporting infrastructure across a small set of physical and virtual systems.
 
-**Current phase:** V1 operational; V1.5 infrastructure integration and refinement  
+**Current phase:** V2 Under Development
 **Last updated:** 14 August 2026
 
 ## Overview
@@ -46,11 +46,17 @@ The platform currently includes:
 | VLAN segmentation | Planned |
 | Wired Proxmox uplink | Planned |
 
-For detailed dated build history, see:
+## Documentation
 
-- [Progress log index](docs/progress/README.md)
-- [14 August 2026 — OPNsense WireGuard completion](docs/progress/2026-08-14/README.md)
 - [Project roadmap](ROADMAP.md)
+- [Progress log index](docs/progress/README.md)
+- [Latest progress — 14 August 2026: OPNsense firewall cleanup](docs/progress/2026-08-14/2026-08-14-OPNsense-firewall-cleanup.md)
+- [Proxmox setup notes](docs/proxmox-setup.md)
+- [GPU passthrough notes](docs/gpu-passthrough-notes.md)
+- [Lessons learned](docs/lessons-learned.md)
+- [Windows environment decision](docs/decisions/2026-08-05-windows-environments.md)
+- [Distributed infrastructure decision](docs/decisions/2026-08-10-distributed-infrastructure.md)
+- [Original V1 architecture diagram](architecture/proxmox_workstation_v1_architecture.svg)
 
 ## Architecture
 
@@ -144,7 +150,7 @@ The Parrot environment separates security tooling and disposable lab work from t
 
 ### VM 104 — OPNsense
 
-OPNsense provides the foundation for later network segmentation and firewalling.
+OPNsense provides the firewall foundation for later network segmentation.
 
 Current lab-side addressing:
 
@@ -155,6 +161,8 @@ WireGuard:  10.255.99.1/24
 ```
 
 A trusted management peer uses the dedicated `10.255.99.0/24` WireGuard network. UDP forwarding from the current Proxmox uplink is restored automatically at host boot using a small systemd service.
+
+The OPNsense management tunnel is intentionally separate from the existing Proxmox WireGuard management network.
 
 ## Infrastructure host
 
@@ -173,12 +181,12 @@ It is intentionally not a Proxmox cluster member.
 
 ## Networking
 
-Two management concepts currently coexist:
+Two management paths currently coexist:
 
-1. **Proxmox management WireGuard** — retained as an independent existing management path.
+1. **Proxmox management WireGuard** — retained as an independent management route to the hypervisor and existing lab network.
 2. **OPNsense management WireGuard** — dedicated tunnel into the firewall itself.
 
-The OPNsense tunnel is intentionally separate rather than reusing the older Proxmox WireGuard instance.
+This separation means changes to the OPNsense tunnel do not require modifying the already-working Proxmox WireGuard configuration.
 
 Current limitations:
 
@@ -190,27 +198,48 @@ Current limitations:
 
 ```text
 proxmox-workstation-platform/
+├── LICENSE
 ├── README.md
 ├── ROADMAP.md
-├── LICENSE
 ├── architecture/
 │   └── proxmox_workstation_v1_architecture.svg
 ├── docs/
 │   ├── decisions/
+│   │   ├── 2026-08-05-windows-environments.md
+│   │   └── 2026-08-10-distributed-infrastructure.md
 │   ├── gpu-passthrough-notes.md
 │   ├── lessons-learned.md
 │   ├── proxmox-setup.md
 │   └── progress/
 │       ├── README.md
 │       ├── 2026-08-03/
+│       │   └── 2026-08-03-document-proxmox-progress-1.md
 │       ├── 2026-08-10/
+│       │   └── 2026-08-10-proxmox-continuation.md
 │       ├── 2026-08-11/
+│       │   └── 2026-08-11-macbook-infrastructure.md
 │       ├── 2026-08-12/
+│       │   └── 2026-08-12-macbook-server.md
 │       ├── 2026-08-13/
+│       │   ├── 2026-08-13-Opnsense-firewall.md
+│       │   └── 2026-08-13-macbook-update.md
 │       └── 2026-08-14/
+│           └── 2026-08-14-OPNsense-firewall-cleanup.md
 └── scripts/
     └── scripts-readme.md
 ```
+
+## Progress history
+
+The dated progress logs preserve the project as it actually developed rather than rewriting older entries to match later decisions.
+
+- [3 August — core Proxmox workstation progress](docs/progress/2026-08-03/2026-08-03-document-proxmox-progress-1.md)
+- [10 August — Proxmox continuation and distributed infrastructure direction](docs/progress/2026-08-10/2026-08-10-proxmox-continuation.md)
+- [11 August — MacBook infrastructure / macOS filtering work](docs/progress/2026-08-11/2026-08-11-macbook-infrastructure.md)
+- [12 August — MacBook migration to Ubuntu Server](docs/progress/2026-08-12/2026-08-12-macbook-server.md)
+- [13 August — MacBook Ubuntu Server update](docs/progress/2026-08-13/2026-08-13-macbook-update.md)
+- [13 August — OPNsense deployment](docs/progress/2026-08-13/2026-08-13-Opnsense-firewall.md)
+- [14 August — OPNsense WireGuard and firewall cleanup](docs/progress/2026-08-14/2026-08-14-OPNsense-firewall-cleanup.md)
 
 ## Learning outcomes
 
@@ -249,6 +278,18 @@ The repository must not contain:
 - Unnecessary public IP addresses
 
 Private RFC1918 addresses may be documented where they help explain the lab architecture, but they are not credentials.
+
+## Current priorities
+
+See the [roadmap](ROADMAP.md) for the full list. The main near-term items are:
+
+- Perform final cold-boot verification of the OPNsense management path
+- Reserve or statically assign infrastructure addresses relied on by persistent forwarding
+- Review OPNsense memory allocation against the host's 32 GB RAM budget
+- Move the Proxmox uplink to Ethernet when practical
+- Introduce VLAN segmentation when the physical network is ready
+- Continue the backup and monitoring work
+- Update the architecture diagram as the distributed design stabilizes
 
 ## Disclaimer
 
