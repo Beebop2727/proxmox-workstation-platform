@@ -3,7 +3,7 @@
 > A Proxmox-based workstation and homelab platform separating Linux productivity, Windows gaming, security testing, firewalling, and supporting infrastructure across a small set of physical and virtual systems.
 
 **Current phase:** V2 Under Development
-**Last updated:** 14 August 2026
+**Last updated:** 18 August 2026
 
 ## Overview
 
@@ -95,7 +95,7 @@ The current Wi-Fi-based design is deliberately temporary. The VM network is rout
 |---|---|
 | CPU | AMD Ryzen 9 3900X |
 | Motherboard | MSI MPG X570 Gaming Pro Carbon WiFi |
-| RAM | 32 GB DDR4 |
+| RAM | 64 GB DDR4 |
 | Windows GPU | NVIDIA GeForce RTX 4070 |
 | Ubuntu GPU | AMD Radeon Pro WX 3100, 4 GB |
 | Wireless adapter | Intel Wi-Fi 6 AX200 |
