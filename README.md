@@ -3,7 +3,7 @@
 > A Proxmox-based workstation and homelab platform separating Linux productivity, Windows gaming, security testing, firewalling, and supporting infrastructure across a small set of physical and virtual systems.
 
 **Current phase:** V2 Under Development
-**Last updated:** 18 August 2026
+**Last updated:** 19 August 2026
 
 ## Overview
 
