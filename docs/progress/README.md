@@ -15,6 +15,10 @@ The root [`README.md`](../../README.md) describes the current project at a high 
 | [2026-08-13 — MacBook](2026-08-13/2026-08-13-macbook-update.md) | Infrastructure | Ubuntu Server Wi-Fi, SSH, WireGuard, Unbound, and secure DNS brought operational |
 | [2026-08-13 — OPNsense](2026-08-13/2026-08-13-Opnsense-firewall.md) | Networking / firewall | OPNsense VM deployment, WAN/LAN configuration, DHCP, GUI access, and WireGuard foundation |
 | [2026-08-14](2026-08-14/2026-08-14-OPNsense-firewall-cleanup.md) | Networking / firewall | Completed OPNsense WireGuard management, persistent DNAT, reboot conntrack recovery, and closure of earlier loose ends |
+| [2026-08-15](2026-08-15/2026-08-15-monitoring-progress.md) | Monitoring | Grafana, Prometheus and Node Exporter monitoring foundation deployed on the Ubuntu Server infrastructure host |
+| [2026-08-18](2026-08-18/2026-08-18-ram-successfully-installed-and-tested.md) | Hardware | Workstation memory upgraded from 32 GB to 64 GB and initial stability testing completed |
+| [2026-08-19](2026-08-19/2026-08-19-OPNsense-and-lab-configuration.md) | Networking / monitoring | OPNsense lab isolation refined, memory increased, and Uptime Kuma deployment started |
+| [2026-08-21](2026-08-21/2026-08-21-dockur-winapps-progress.md) | Workstation integration | Dockur Windows proof of concept deployed inside Ubuntu VM 101 in preparation for WinApps / RemoteApp integration |
 
 ## Related documentation
 

@@ -50,7 +50,7 @@ The platform currently includes:
 
 - [Project roadmap](ROADMAP.md)
 - [Progress log index](docs/progress/README.md)
-- [Latest progress — 14 August 2026: OPNsense firewall cleanup](docs/progress/2026-08-14/2026-08-14-OPNsense-firewall-cleanup.md)
+- [Latest progress — 21 August 2026: Dockur Windows + WinApps proof of concept](docs/progress/2026-08-21/2026-08-21-dockur-winapps-progress.md)
 - [Proxmox setup notes](docs/proxmox-setup.md)
 - [GPU passthrough notes](docs/gpu-passthrough-notes.md)
 - [Lessons learned](docs/lessons-learned.md)
@@ -240,6 +240,10 @@ The dated progress logs preserve the project as it actually developed rather tha
 - [13 August — MacBook Ubuntu Server update](docs/progress/2026-08-13/2026-08-13-macbook-update.md)
 - [13 August — OPNsense deployment](docs/progress/2026-08-13/2026-08-13-Opnsense-firewall.md)
 - [14 August — OPNsense WireGuard and firewall cleanup](docs/progress/2026-08-14/2026-08-14-OPNsense-firewall-cleanup.md)
+- [15 August — Grafana and Prometheus monitoring foundation](docs/progress/2026-08-15/2026-08-15-monitoring-progress.md)
+- [18 August — 64 GB RAM upgrade and testing](docs/progress/2026-08-18/2026-08-18-ram-successfully-installed-and-tested.md)
+- [19 August — OPNsense lab configuration and Uptime Kuma deployment](docs/progress/2026-08-19/2026-08-19-OPNsense-and-lab-configuration.md)
+- [21 August — Dockur Windows and WinApps proof of concept](docs/progress/2026-08-21/2026-08-21-dockur-winapps-progress.md)
 
 ## Learning outcomes
 
