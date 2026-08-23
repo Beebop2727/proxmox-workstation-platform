@@ -3,7 +3,7 @@
 > A Proxmox-based workstation and homelab platform separating Linux productivity, Windows gaming, security testing, firewalling, and supporting infrastructure across a small set of physical and virtual systems.
 
 **Current phase:** V2 Under Development
-**Last updated:** 21 August 2026
+**Last updated:** 23 August 2026
 
 ## Overview
 
@@ -285,7 +285,7 @@ See the [roadmap](ROADMAP.md) for the full list. The main near-term items are:
 
 - Perform final cold-boot verification of the OPNsense management path
 - Reserve or statically assign infrastructure addresses relied on by persistent forwarding
-- Review OPNsense memory allocation against the host's 32 GB RAM budget
+- Review and tune VM memory allocation against the host's 64 GB RAM capacity
 - Move the Proxmox uplink to Ethernet when practical
 - Introduce VLAN segmentation when the physical network is ready
 - Continue the backup and monitoring work
