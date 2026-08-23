@@ -22,6 +22,9 @@ The platform currently includes:
 - A separate Ubuntu Server infrastructure host
 - Routed/NAT virtual networking over the current Wi-Fi-constrained uplink
 - Tested VM backup and restoration workflows
+- Grafana and Prometheus infrastructure monitoring
+- An isolated OPNsense-backed cybersecurity lab network
+- Experimental Dockur Windows / WinApps integration for Windows-only desktop applications
 
 ## Current status
 
@@ -43,6 +46,11 @@ The platform currently includes:
 | OPNsense WireGuard management | Operational |
 | VM backup / restore validation | Complete |
 | Public documentation cleanup | In progress |
+| Grafana / Prometheus monitoring | Operational |
+| Uptime Kuma monitoring | In development |
+| Isolated OPNsense lab network | Operational |
+| Dockur Windows compatibility environment | Proof of concept operational |
+| WinApps / RemoteApp integration | In development |
 | VLAN segmentation | Planned |
 | Wired Proxmox uplink | Planned |
 
@@ -102,7 +110,7 @@ The current Wi-Fi-based design is deliberately temporary. The VM network is rout
 | Hypervisor storage | 500 GB NVMe SSD |
 | Primary VM storage | 4 TB NVMe SSD |
 | Bulk storage | 2 × 2 TB HDD |
-| PSU | Approximately 800 W, 80 Plus Gold |
+| PSU | EVGA 750 GQ — 750 W, 80 Plus Gold |
 | Case | NZXT H510 Elite |
 | Display | Huawei MateView GT 34-inch ultrawide |
 
@@ -130,14 +138,16 @@ A separate bare-metal Windows installation is used where native execution or ant
 
 ### VM 101 — Ubuntu Workstation
 
-The Ubuntu VM is the primary virtual Linux desktop.
+The Ubuntu VM is the primary virtual Linux desktop and integration environment.
 
 - OVMF / UEFI
 - AMD Radeon Pro WX 3100 passthrough
 - QEMU Guest Agent
 - Development and administration environment
 - Looking Glass client
-- General workstation role
+- Docker with nested KVM access
+- Experimental Dockur Windows 11 LTSC environment
+- WinApps / RemoteApp integration testing
 
 ### VM 102 / 103 — Parrot OS
 
