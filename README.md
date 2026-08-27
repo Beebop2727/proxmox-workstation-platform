@@ -62,6 +62,7 @@ The platform currently includes:
 - [Proxmox setup notes](docs/proxmox-setup.md)
 - [GPU passthrough notes](docs/gpu-passthrough-notes.md)
 - [Lessons learned](docs/lessons-learned.md)
+- [Decision records and research-brain design](docs/decisions/README.md)
 - [Windows environment decision](docs/decisions/2026-08-05-windows-environments.md)
 - [Distributed infrastructure decision](docs/decisions/2026-08-10-distributed-infrastructure.md)
 - [Original V1 architecture diagram](architecture/proxmox_workstation_v1_architecture.svg)
@@ -215,8 +216,11 @@ proxmox-workstation-platform/
 │   └── proxmox_workstation_v1_architecture.svg
 ├── docs/
 │   ├── decisions/
+│   │   ├── README.md
 │   │   ├── 2026-08-05-windows-environments.md
-│   │   └── 2026-08-10-distributed-infrastructure.md
+│   │   ├── 2026-08-10-distributed-infrastructure.md
+│   │   ├── 2026-08-17-ram-upgrade-decision.md
+│   │   └── 2026-08-25-hyprland-decision.md
 │   ├── gpu-passthrough-notes.md
 │   ├── lessons-learned.md
 │   ├── proxmox-setup.md
