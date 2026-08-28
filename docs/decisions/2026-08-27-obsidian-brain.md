@@ -1,16 +1,3 @@
----
-type: decision
-decision_id: ADR-001
-status: accepted
-date: 2026-08-27
-scope: documentation
-tags:
-  - knowledge-management
-  - obsidian
-  - local-ai
-  - retrieval
----
-
 # Decision records and the project research brain
 
 ## Decision summary
